@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <style>
+        .thumbnail {
+            width: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 15px;
+            transition: filter 0.3s;
+        }
+
+        .images {
+            text-align: center;
+            padding: 5px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+
+        .description {
+            margin-bottom: 30px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        #bigAvatarPic{
+            width: 300px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            text-align: center;
+        }
+        .container{
+            margin-top: 8%;
+            padding: 10px;
+        }
+        body{
+            background-color: #ffe6a7;
+            margin-bottom: 5%;
+        }
+
+        .thumbnail:hover{
+            filter: grayscale(100%);
+        }
+    </style> 
+</head>
+<body>
+<div class="container">
+    <h1> About us </h1>
+    <div class="images">
+        <img src="Images_ST3/thumbnail1.png" id="bigAvatarPic" alt="Avatar 1">
+            <div class="description">
+                <span id="description">Click on a picture to see the work each student has done 
+                </span>
+            </div>
+
+        <div>
+            <img src="Images_ST3/thumbnail2.png" class="thumbnail" alt="Avatar 2"
+            onmouseover="changeBigAvatarPic(this.src); changeDescription(1);">
+            
+            <img src="Images_ST3/thumbnail3.png" class="thumbnail" alt="Avatar 3"
+            onmouseover="changeBigAvatarPic(this.src); changeDescription(2);">
+           
+            <img src="Images_ST3/thumbnail4.png" class="thumbnail" alt="Avatar 4"
+            onmouseover="changeBigAvatarPic(this.src); changeDescription(3);">
+            <a href="pageEditor_ST3.html" target="_blank">
+            <img src="Images_ST3/thumbnail1.png" class="thumbnail" alt="Avatar 1"
+            onmouseover="changeBigAvatarPic(this.src); changeDescription(0);">
+            </a>
+        </div>
+    
+    </div>
+</div>
+    <script>
+
+        function changeBigAvatarPic(source) {
+            document.getElementById("bigAvatarPic").src = source;
+        }
+        function changeDescription (index) {
+            const description = ["Vitoria Franca - Student 3", 
+            "Frida Gaias - Student 1",
+            "Danial Javed - Student 4", 
+            "Maryam Chaudhry - Student 2"];
+            document.getElementById("description").innerHTML = description[index];
+        }
+
+        function centerImage(thumbnail) {
+
+            const thumbnailContainer = thumbnail.parentElement;
+
+            // Check if the thumbnail is already in the center
+            if (thumbnail === thumbnailContainer.firstElementChild.nextElementSibling) {
+                return;
+                }
+
+            // Move the hovered thumbnail to the center
+            thumbnailContainer.insertBefore(thumbnail, thumbnailContainer.firstElementChild.nextElementSibling);
+
+            // Move the previously centered thumbnail back to its original position
+            const bigAvatarPic = document.getElementById("bigAvatarPic");
+            thumbnailContainer.appendChild(bigAvatarPic);
+        }
+
+    </script>
+    </body>
+</html>
