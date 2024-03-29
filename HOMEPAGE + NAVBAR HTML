@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earth</title>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- swiper bundle -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="earth_style.css">
+</head>
+<body>
+    
+    <!-- header -->
+
+    <header class="header">
+
+        <a href="#" class="logo"><img src="life.jpg" alt="Earth Logo" style="width: 20px; height: 20px;"> Earth</a>
+
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#aboutus">about us</a>
+            <a href="#gallery">gallery</a>
+            <a href="#shop">shop</a>
+            <a href="#contact">contact</a>
+            <a href="#joinus">join us</a>
+        </nav>
+
+        <div class="icons">
+            <div id="menu-btn"></div>
+        </div>
+
+        
+    </header>
+
+
+<!-- section for home -->
+
+<section class="home" id="home"> 
+  <div class="home-container"> 
+    <div class="home-text"> 
+      <h3>Supporting Life <br> on Earth </h3> <a href="#" class="btn">Nature's Gateway</a> 
+    </div> 
+  </div> 
+  <div class="image-container"> <img src="life.jpg" alt="Life Image" class="home-image"> 
+  </div> 
+</section>
+
+  <!-- end -->
+
+    <!-- about -->
+
+    <section class="about" id="about">
+      <div class="split-container">
+          <div class="about-us">
+              <h2 class="deco-title">About us</h2>
+              <div class="image">
+                  <img src="images/about.png" alt="">
+              </div>
+              <div class="content">
+                  <div class="icons-container">
+                      <div class="icons">
+                          <h3>Welcome to our digital sanctuary, dedicated to the vibrant heartbeat of our planet's terrestrial life. Step into a world where every leaf, every creature, and every ecosystem matters.</h3>
+                      </div>
+                      
+                      <div class="icons">
+                          
+                          <h3>Our mission is clear: to champion SDG 15 - Life on Land - by showcasing the beauty, diversity, and importance of our terrestrial ecosystems. 
+                            <br><br>
+                            Through immersive galleries, thought-provoking content, and sustainable shopping experiences, we invite you to explore, learn, and take action for a greener, healthier world. 
+                            <br><br>
+                            Join us on this journey as we cultivate a deeper connection with nature and pave the way for a future where life on land thrives.</h3>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="our-mission">
+              <h2 class="deco-title">Our Mission</h2>
+              <p></p>
+          </div>
+      </div>
+  </section>
+  
+
+
+  <!-- end -->
+
+  <!-- gallery -->
+
+  <section class="gallery" id="gallery">
+
+    <h2 class="heading">gallery</h2>
+
+    <div class="swiper gallery-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="" alt="">
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="" alt="">
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="" alt="">
+                </div>
+            </div>
+
+            <div class="swiper-slide slide">
+                <div class="image">
+                    <img src="" alt="">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper-button-next"></div> <!---- creates a button for navigating to the next slide in the gallery. This button is handled by the Swiper library. -->
+        <div class="swiper-button-prev"></div>
+
+    </div>
+
+</section>
+
+<!-- end -->
+
+<!-- Shop -->
+
+<section class="shop" id="shop">
+
+  <h2 class="heading">Shop</h2>
+
+  <div class="box-container">
+
+      <div class="box">
+          <img src="" alt="">
+          <div class="content">
+              <h3></h3>
+              <a href="#" class="btn">show more</a>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="" alt="">
+          <div class="content">
+              <h3></h3>
+              <a href="#" class="btn">show more</a>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="" alt="">
+          <div class="content">
+              <h3></h3>
+              <a href="#" class="btn">show more</a>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="" alt="">
+          <div class="content">
+              <h3></h3>
+              <a href="#" class="btn">show more</a>
+          </div>
+      </div>
+
+  </div>
+
+</section>
+
+<!-- end -->
+
+<!-- contact -->
+
+<section class="contact" id="contact">
+
+  <h2 class="heading">Contact</h2>
+
+  <form action="">
+
+      <div class="inputBox">
+          <input type="text" placeholder="name">
+          <input type="email" placeholder="email">
+      </div>
+
+      <div class="inputBox">
+          <input type="number" placeholder="number">
+          <input type="text" placeholder="subject">
+      </div>
+
+      <textarea name="" id="" cols="30" rows="10" placeholder="meassage"></textarea>
+
+      <a href="#" class="btn">send message</a>
+
+  </form>
+
+</section>
+
+<!-- end -->
+
+
+<!-- footer -->
+
+<section class="footer lime-bg">
+  <div class="box-container">
+    <div class="box">
+      <h3>Earth</h3>
+      <p class="links"><i class="fas fa-clock"></i> Contact us from Monday - Friday</p>
+      <p class="days">7:00AM - 11:00PM</p>
+    </div>
+
+
+    <div class="box">
+      <h3>Contact Info</h3>
+      <a href="#" class="links"><i class="fas fa-phone"></i> 020 7429 5822</a>
+      <a href="#" class="links"><i class="fas fa-envelope"></i> info@earth.com</a>
+      <a href="#" class="links"><i class="fas fa-map-marker-alt"></i> London, United Kingdom</a>
+    </div>
+
+
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="#" class="links"><i class="fas fa-arrow-right"></i> Home</a>
+      <a href="#" class="links"><i class="fas fa-arrow-right"></i> About Us</a>
+      <a href="#" class="links"><i class="fas fa-arrow-right"></i> Gallery</a>
+      <a href="#" class="links"><i class="fas fa-arrow-right"></i> Shop</a>
+      <a href="#" class="links"><i class="fas fa-arrow-right"></i> Contact</a>
+      <a href="#" class="links"><i class="fas fa-arrow-right"></i> Join Us</a>
+    </div>
+
+
+    <div class="box">
+      <h3>Newsletter</h3>
+      <p>Subscribe for latest updates</p>
+      <input type="email" placeholder="Your Email" class="email">
+      <a href="#" class="btn">Subscribe</a>
+      <div class="share">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin"></a>
+      </div>
+    </div>
+  </div>
+  <div class="credit">&copy; Earth. All rights reserved by <a href="#" class="link">Earth</a></div>
+</section>
+
+
+<!-- end -->
+
+<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+    <script src="zoojava.js"></script>
+
+</body>
+</html>
