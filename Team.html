@@ -12,24 +12,22 @@
             padding: 15px;
             transition: filter 0.3s;
         }
-
         .images {
             text-align: center;
             padding: 5px;
             margin-right: 10px;
             margin-left: 10px;
         }
-
         .description {
             margin-bottom: 30px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-family: 'Roboto', sans-serif;
         }
-        #bigAvatarPic{
+        #bigPic{
             width: 300px;
             margin-bottom: 20px;
         }
         h1 {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-family: 'Roboto', sans-serif;
             text-align: center;
         }
         .container{
@@ -37,72 +35,58 @@
             padding: 10px;
         }
         body{
-            background-color: #ffe6a7;
+            background-color: #c8d5b9;
             margin-bottom: 5%;
         }
-
         .thumbnail:hover{
             filter: grayscale(100%);
         }
     </style> 
 </head>
 <body>
+<!--creating a container for the images-->
 <div class="container">
-    <h1> About us </h1>
-    <div class="images">
-        <img src="Images_ST3/thumbnail1.png" id="bigAvatarPic" alt="Avatar 1">
-            <div class="description">
-                <span id="description">Click on a picture to see the work each student has done 
-                </span>
+    <h1> About us </h1> <!-- heading of the page-->
+    <div class="images"> <!-- div for images-->
+        <img src="Images_ST3/thumbnail1.png" id="bigPic" alt="Avatar 1"> <!-- setting the first image-->
+            <div class="description"> <!-- div for description-->
+                <span id="description">Hover over a picture to find out more.
+                    <br> Click on a picture to see the Student's Page Editor.</span>
             </div>
-
         <div>
+            <!--adding the other images for each student-->
             <img src="Images_ST3/thumbnail2.png" class="thumbnail" alt="Avatar 2"
-            onmouseover="changeBigAvatarPic(this.src); changeDescription(1);">
-            
+            onmouseover="changeBigPic(this.src); changeDescription(1);"> 
+            <!--when the mouse hovers on top of the image, it calls the function so it changes to this picture-->
             <img src="Images_ST3/thumbnail3.png" class="thumbnail" alt="Avatar 3"
-            onmouseover="changeBigAvatarPic(this.src); changeDescription(2);">
-           
+            onmouseover="changeBigPic(this.src); changeDescription(2);">
+           <!--same to all other images-->
             <img src="Images_ST3/thumbnail4.png" class="thumbnail" alt="Avatar 4"
-            onmouseover="changeBigAvatarPic(this.src); changeDescription(3);">
-            <a href="pageEditor_ST3.html" target="_blank">
+            onmouseover="changeBigPic(this.src); changeDescription(3);">
+
+            <!-- added a link to the image to make it more interactive-->
+            <a href="pageEditor_ST3.html" target="_blank"> 
+            <!-- the link takes the user to the student's editor page -->
             <img src="Images_ST3/thumbnail1.png" class="thumbnail" alt="Avatar 1"
-            onmouseover="changeBigAvatarPic(this.src); changeDescription(0);">
+            onmouseover="changeBigPic(this.src); changeDescription(0);">
             </a>
         </div>
-    
     </div>
 </div>
     <script>
-
-        function changeBigAvatarPic(source) {
-            document.getElementById("bigAvatarPic").src = source;
+        //function to change the picture in the center of the page
+        function changeBigPic(source) {
+            document.getElementById("bigPic").src = source;
         }
+        //function to change the description of each image (stored in arrays)
         function changeDescription (index) {
             const description = ["Vitoria Franca - Student 3", 
             "Frida Gaias - Student 1",
             "Danial Javed - Student 4", 
             "Maryam Chaudhry - Student 2"];
-            document.getElementById("description").innerHTML = description[index];
-        }
-
-        function centerImage(thumbnail) {
-
-            const thumbnailContainer = thumbnail.parentElement;
-
-            // Check if the thumbnail is already in the center
-            if (thumbnail === thumbnailContainer.firstElementChild.nextElementSibling) {
-                return;
-                }
-
-            // Move the hovered thumbnail to the center
-            thumbnailContainer.insertBefore(thumbnail, thumbnailContainer.firstElementChild.nextElementSibling);
-
-            // Move the previously centered thumbnail back to its original position
-            const bigAvatarPic = document.getElementById("bigAvatarPic");
-            thumbnailContainer.appendChild(bigAvatarPic);
+            document.getElementById("description").innerHTML = description[index]; 
         }
 
     </script>
-    </body>
+</body>
 </html>
