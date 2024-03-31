@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Editor</title>
+  <style>
+    body {
+      font-family: Courier New, monospace;
+      background: #f4f4f4; /* Fallback color */
+      margin: 0;
+      padding: 0;
+    }
+
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Place behind other content */
+    }
+
+    video {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover; /* Cover entire area */
+    }
+
+    .container {
+      position: relative;
+      z-index: 1; /* Place above video */
+      max-width: 600px;
+      margin: 50px auto; /* Adjust margin as needed */
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .content {
+      margin-top: 20px;
+    }
+
+    .content p {
+      margin-bottom: 10px;
+    }
+
+    .content ul {
+      margin: 0;
+      padding: 0 0 0 20px;
+      list-style-type: none; /* Remove default list style */
+    }
+
+    .content ul li {
+      margin-bottom: 15px; /* Increased margin for better readability */
+    }
+
+    /* Nested list styles */
+    .content ul ul {
+      list-style-type: disc; /* Use bullet points for nested list */
+      margin-left: 20px; /* Indent nested list */
+    }
+
+    /* Button styles */
+    .btn {
+      padding: 10px 20px;
+      background-color: #ddd; /* Grey background */
+      color: #333;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #800080; /* Purple background on hover */
+      color: #fff;
+    }
+    
+    .btn.home {
+        background-color: #9057fae2;
+        padding: 10px 20px;
+        color: #333;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn.home:hover{
+        background-color: #1c0270;
+        color: #fff;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="video-background">
+    <video autoplay muted loop>
+      <source src="editor_background.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <div class="container">
+    <h1>Page Editor</h1>
+    <div class="content">
+      <p><strong>Name:</strong> Fridali Gaias</p>
+      <p><strong>Role:</strong> Student 1</p>
+      <p><strong>The following pages were created by me:</strong></p>
+      <ul>
+        <li>
+          <strong>Splash Screen:</strong> 
+          The splash screen is the first screen that users see when they visit the application. It features the website title, mission and the names of my group members. After a brief "loading" time, it automatically redirects users to the Home page. It contains an animated image that indicates that the home page is loading.
+          <button class="btn" onclick="window.location.href='splash.html'">Click here to see the Splash page!</button>
+        </li>
+        <li>
+          <strong>Progress:</strong> 
+          Based on the UN website, I created a content page with the purpose to show the progress towards the targets for "Life on Land".
+          <button class="btn" onclick="window.location.href='content_ST1.html'">Click here to see the Progress page!</button>
+        </li>
+        <li>
+          <strong>Shop:</strong> 
+          The shop page allows users to browse and purchase items to support the Life on Land cause.
+          <ul>
+            <li> The products are related to the theme.</li>
+            <li> The user can choose the product quantity, size, and color.</li>
+            <li> Each item listing includes an "Add to cart" button.</li>
+            <li> A basket to capture the information about the selected products, including info.</li>
+            <li> Proceeding to checkout after the user selects at least one product.</li>
+            <li> Product checkout section, to finalize purchase and provide customer info.</li>
+            <li> The system provides a message to confirm the completion of the order.</li>
+          </ul>
+          <button class="btn" onclick="window.location.href='shop.html'">Click here to see the Shop page!</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Footer with button to go to splash/home -->
+    <footer>
+      <button class="btn home" onclick="window.location.href='splash.html'">Go back to Home Page</button>
+    </footer>
+  </div>
+</body>
+
+</html>
