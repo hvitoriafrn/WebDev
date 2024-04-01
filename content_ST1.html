@@ -7,9 +7,31 @@
   <title>Progress</title>
   <!-- Adding the favicon  -->
   <link rel="icon" type="image/png" href="clear01.png">
+
+  <link rel="stylesheet" href="style.css">
+
   <style>
-    body {
+  
+    .video-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Place behind other content */
+      opacity: 0.7; /* Adjust opacity as needed */
+    }
+
+    video {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover; /* Cover entire area */
+      
+    }
+
+    .Body {
       font-family: Verdana, sans-serif;
+      font-size: medium;
       background-color: #f0f0f0;
       margin: 0;
       padding: 20px;
@@ -18,14 +40,15 @@
       min-height: 100vh;
     }
 
-    .container {
+    .myContainer {
       flex: 1;
       max-width: 800px;
       margin: auto;
-      background-color: #8bcead;
+      background-color: #84a98c;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      font-size: medium;
     }
 
     h1 {
@@ -59,7 +82,7 @@
     }
 
     /* Styling for the button */
-    .footer-button {
+    .myFooter-button {
       padding: 10px 20px;
       background-color: #6600ff;
       color: #fff;
@@ -69,7 +92,7 @@
       transition: background-color 0.3s ease;
     }
 
-    .footer-button:hover {
+    .myFooter-button:hover {
       background-color: #2b0466; /* Darker shade on hover */
     }
 
@@ -95,39 +118,20 @@
       border-radius: 4px;
       cursor: pointer;
       transition: background-color 0.3s ease;
-      margin-bottom: 5px; /* Add space below the image */
+      margin-bottom: 10px; /* Add space below the image */
 
     }
 
     /* Style for button images */
     .button-container button img {
-      max-width: 350px; /* Adjust the width as needed */
+      max-width: 400px; /* Adjust the width as needed */
       height: auto;
       margin-bottom: 5px; /* Add space below the image */
       margin-top: 5px; /* Add space below the image */
+      margin-left: 5px;
+      margin-right: 5px;
     }
 
-    /* TO BE EDITED!!! Task bar styles */
-    .task-bar {
-      background-color: #333; /* Task bar background color */
-      color: #fff; /* Task bar text color */
-      padding: 10px; /* Padding around task bar items */
-      text-align: center;
-      position: fixed; /* Fixed position */
-      top: 0; /* Align to the top */
-      left: 0; /* Align to the left */
-      right: 0; /* Align to the right */
-      z-index: 1000; /* Ensure it's on top of other content */
-    }
-
-    /* Task bar item styles */
-    .task-item {
-      display: inline-block; /* Display items in a row */
-      margin-right: 10px; /* Spacing between items */
-      cursor: pointer;
-      color: #fff; /* Text color for task items */
-      text-decoration: underline; /* Underline for task items */
-    }
 
     /* Go to top button */
     .go-top-btn {
@@ -148,23 +152,84 @@
       background-color: #2b0466; /* Darker shade on hover */
     }
 
+
   </style>
 </head>
 
 <body>
 
-    <!-- Simple task bar placeholder -->
-    <div class="task-bar">
-        <div class="task-item" onclick="handleTask1()">Task 1</div>
-        <div class="task-item" onclick="handleTask2()">Task 2</div>
-        <div class="task-item" onclick="handleTask3()">Task 3</div>
-        <!-- Add more task items as needed -->
-      </div>
-    </div>
+  <div class="video-background">
+    <video autoplay muted loop>
+      <source src="content_ST1_background.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
 
-  <div class="container">
+    <!-- header -->
+
+    <header class="header">
+
+      <a href="https://w1905050.users.ecs.westminster.ac.uk/EARTH/splash.html" class="logo"><img src="clear01.png" alt="Earth Logo" style="width: 20px; height: 20px;"> Earth</a>
+
+
+      <nav class="navbar">
+        <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/home.html">home</a>
+        <div class="dropdown">
+            <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Team.html">about us</a>
+            <div class="dropdown-content">
+                <a href="#content">content</a>
+                <div class="sub-menu">
+                    <a href="#overview">overview</a>
+                    <a href="https://w1947710.users.ecs.westminster.ac.uk/EARTH/content_ST4.html "target="_blank">take action</a>
+                    <a href="#targets">targets</a>
+                    <a href="https://w1905050.users.ecs.westminster.ac.uk/EARTH/content_ST1.html">progress</a>
+                </div>
+            </div>
+        </div>
+        <a href="https://w1947710.users.ecs.westminster.ac.uk/EARTH/gallery.html">gallery</a>
+        <a href="https://w1905050.users.ecs.westminster.ac.uk/EARTH/shop.html">shop</a>
+        <div class="dropdown">
+            <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Profile.html" target="_blank">user profile</a>
+            <div class="dropdown-content">
+                <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/feedback.html"target="_blank">feedback form</a>
+            </div>
+        </div>
+        <a href="https://w1947710.users.ecs.westminster.ac.uk/EARTH/sitemap.html" target="_blank">sitemap</a>
+        <div class="dropdown">
+            <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Team.html"target="_blank">meet the team</a>
+            <div class="dropdown-content">
+              <a href="https://sdgs.un.org/contact" target="_blank">Contact</a>
+                <a href="#joinus">join us</a>
+                <a href="FAQs.html"target="_blank">FAQs</a>
+                <a href="terms&conditions.html"target="_blank">Terms & Conditions</a>
+            </div>
+        </div>
+    </nav>
+    
+    
+    
+    
+    
+
+      <div class="icons">
+          <div id="menu-btn"></div>
+      </div>
+
+      
+  </header>
+
+
+
+  <div class="myContainer">
+    <br>
+    <br>
+    <br>
+    <br>
     <h1>Progress</h1>
+    <br>
     <h2>Progress towards a better Life on Land</h2>
+    <br>
+    <h3> Our goal: </h3>
     <p> Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss.</p>
 
     <label for="yearSelect">Select a year:</label>
@@ -194,7 +259,7 @@
   <button class="go-top-btn" onclick="goToTop()"> ⇧ </button>
 
   <footer>
-    <button class="footer-button" onclick="redirectToPageEditor()">About this Page Editor.</button>
+    <button class="myFooter-button" onclick="redirectToPageEditor()">About this Page Editor.</button>
   </footer>
 
   <script>
@@ -257,7 +322,7 @@
     }
 
     function redirectToPageEditor() {
-      window.location.href = "pageEditor_ST1.html";
+      window.location.href = "https://w1905050.users.ecs.westminster.ac.uk/EARTH/pageEditor_ST1.html";
     }
 
     function redirectToLink(url) {
