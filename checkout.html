@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Adding the favicon  -->
+  <link rel="icon" type="image/png" href="clear01.png">
+  <link rel="stylesheet" href="style.css">
+  <title>Checkout</title>
+  <style>
+    /* General styles */
+    body {
+      margin: 20px;
+      font-size: medium;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    p {
+        margin-left: 40px;
+    }
+    .checkout-container {
+      display: flex;
+      
+    }
+    .checkout-details {
+      flex: 1;
+      margin-right: 20px;
+      margin-left: 60px;
+      
+    }
+  
+    .order-summary {
+      flex: 1;
+      position: sticky;
+      top: 20px;
+      padding: 10px;
+      border-radius: 5px;
+      margin-left: 20px;
+
+    }
+    /* Form styles */
+    form {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    button[type="submit"] {
+      padding: 10px 20px;
+      background-color: #6600ff;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: large;
+      margin-left: 80px;
+    }
+    button[type="submit"]:hover {
+      background-color: #2b0466; /* Darker shade on hover */
+    }
+
+    
+
+
+    /* Styles for smaller input boxes */
+input[type="text"],
+input[type="email"] {
+ 
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 50%; 
+  padding: 6px; 
+}
+
+input[type="number"]{
+   
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 20%; 
+  padding: 6px; 
+}
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+     <header class="header">
+
+        <a href="#" class="logo"><img src="clear01.png" alt="Earth Logo" style="width: 20px; height: 20px;"> Earth</a>
+  
+  
+        <nav class="navbar">
+            <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/home.html">home</a>
+            <div class="dropdown">
+                <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Team.html">about us</a>
+                <div class="dropdown-content">
+                    <a href="#content">content</a>
+                    <div class="sub-menu">
+                        <a href="#overview">overview</a>
+                        <a href="https://w1947710.users.ecs.westminster.ac.uk/EARTH/content_ST4.html "target="_blank">take action</a>
+                        <a href="#targets">targets</a>
+                        <a href="https://w1905050.users.ecs.westminster.ac.uk/EARTH/content_ST1.html">progress</a>
+                    </div>
+                </div>
+            </div>
+            <a href="https://w1947710.users.ecs.westminster.ac.uk/EARTH/gallery.html">gallery</a>
+            <a href="https://w1905050.users.ecs.westminster.ac.uk/EARTH/shop.html">shop</a>
+            <div class="dropdown">
+                <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Profile.html" target="_blank">user profile</a>
+                <div class="dropdown-content">
+                    <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/feedback.html"target="_blank">feedback form</a>
+                </div>
+            </div>
+            <a href="https://w1947710.users.ecs.westminster.ac.uk/EARTH/sitemap.html" target="_blank">sitemap</a>
+            <div class="dropdown">
+                <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Team.html"target="_blank">meet the team</a>
+                <div class="dropdown-content">
+                  <a href="https://sdgs.un.org/contact" target="_blank">Contact</a>
+                    <a href="#joinus">join us</a>
+                    <a href="FAQs.html"target="_blank">FAQs</a>
+                    <a href="terms&conditions.html"target="_blank">Terms & Conditions</a>
+                </div>
+            </div>
+        </nav>
+      
+      
+  
+        <div class="icons">
+            <div id="menu-btn"></div>
+        </div>
+  
+        
+    </header>
+
+   
+  <h1 style="margin-top: 100px; margin-left: 50px;">Checkout</h1>
+  <br>
+  <p>Almost there...</p>
+  <br>
+  <div class="checkout-container">
+    <!-- Checkout Details -->
+<div class="checkout-details">
+    <form id="checkoutForm">
+      <h2>Payment Details</h2>
+      <label for="cardNumber">Card Number:</label>
+      <input type="text" id="cardNumber" name="cardNumber" required>
+      
+      <label for="cardHolder">Cardholder Name:</label>
+      <input type="text" id="cardHolder" name="cardHolder" required>
+      
+      <label for="expiryDate">Expiry Date:</label>
+      <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YYYY" required>
+      
+      <label for="ccv">CCV:</label>
+      <input type="number" id="ccv" name="ccv" required>
+      
+      <h2>Billing Address</h2>
+      <label for="address1">Address Line 1:</label>
+      <input type="text" id="address1" name="address1" required>
+      
+      <label for="address2">Address Line 2:</label>
+      <input type="text" id="address2" name="address2">
+      
+      <label for="city">Town/City:</label>
+      <input type="text" id="city" name="city" required>
+      
+      <label for="country">Country:</label>
+      <input type="text" id="country" name="country" required>
+      
+      <h2>Contact Details</h2>
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName" required>
+      
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName" required>
+
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="number"  id="phoneNumber" name="phoneNumber" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+      <br>
+      <br>
+      <button type="submit"> Make Payment</button>
+
+    </form>
+  </div>
+  
+
+    <div class="order-summary" id="orderSummary">
+        <br>
+        <h2> Order Summary:</h2>
+        <br>
+        <!-- Order summary will be populated dynamically from localStorage -->
+        <br>
+    </div>
+
+    
+
+    </body>
+
+  <script>
+    // Retrieve checkout summary from local storage
+const checkoutSummary = localStorage.getItem('checkoutSummary');
+const orderSummaryElement = document.getElementById('orderSummary');
+
+// Parse the HTML content of checkoutSummary
+const tempDiv = document.createElement('div');
+tempDiv.innerHTML = checkoutSummary;
+
+// Extract the required information
+const items = tempDiv.querySelectorAll('li');
+const orderList = document.createElement('ul');
+
+items.forEach(item => {
+  const newItem = document.createElement('li');
+  // Exclude the last character from the text content 
+  newItem.textContent = item.textContent.slice(0, -2);
+  orderList.appendChild(newItem);
+});
+
+// Retrieve the total price from local storage
+let totalPrice = localStorage.getItem('totalPrice');
+if (totalPrice === null) {
+  // Handle the case where totalPrice is not set
+  totalPrice = '0.00';
+}
+
+// Create a new list item for the total price
+const totalItem = document.createElement('li');
+totalItem.textContent = `Total: £${totalPrice}`;
+orderList.appendChild(totalItem);
+
+orderSummaryElement.appendChild(orderList);
+
+
+
+document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  const cardNumber = document.getElementById('cardNumber').value;
+  const cardHolder = document.getElementById('cardHolder').value;
+  const expiryDate = document.getElementById('expiryDate').value;
+  const ccv = document.getElementById('ccv').value;
+  const address1 = document.getElementById('address1').value;
+  const address2 = document.getElementById('address2').value;
+  const city = document.getElementById('city').value;
+  const country = document.getElementById('country').value;
+  const firstName = document.getElementById('firstName').value;
+  const lastName = document.getElementById('lastName').value;
+  const phoneNumber = document.getElementById('phoneNumber').value;
+  const email = document.getElementById('email').value;
+
+  // Validate the form fields
+  if (validateForm(cardNumber, cardHolder, expiryDate, ccv, address1, city, country, firstName, lastName)) {
+    // Proceed with checkout
+    alert('Checkout successful!');
+  } else {
+    alert('Please fill out all required fields.');
+  }
+});
+
+function validateForm(cardNumber, cardHolder, expiryDate, ccv, address1, city, country, firstName, lastName) {
+  //  checking for empty fields
+  return cardNumber !== '' && cardHolder !== '' && expiryDate !== '' && ccv !== '' &&
+    address1 !== '' && city !== '' && country !== '' && firstName !== '' && lastName !== '';
+}
+
+
+  </script>
+</body>
+</html>
