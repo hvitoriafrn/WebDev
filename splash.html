@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Adding the favicon  -->
+<link rel="icon" type="image/png" href="clear01.png">
+<title>Welcome to EARTH</title>
+<link rel="stylesheet" href="style.css">
+<style>
+    /* CSS for fade_splash.html */
+body  {
+    margin: 0;
+    padding: 0;
+    /*height: 100vh;  Ensure body takes full height of viewport */
+    font-family: Arial, sans-serif;
+    display: flex;
+
+}
+
+html{
+    margin: 0;
+    padding: 0;
+    height: 100vh;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.splash-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+
+#video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the entire area while preserving aspect ratio */
+    z-index: -1; /* Set z-index to send the video behind other elements */
+}
+
+.splash-content {
+    text-align: center;
+    opacity: 1;
+    color: #fff; /* Text color */
+    transition: opacity 1s ease-in-out;
+    z-index: 1; /* Set z-index to ensure it's above the video */
+}
+
+.loading-text {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff; 
+    animation: loading 2s infinite;
+}
+
+@keyframes loading {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+.ready-text {
+    font-size: 80px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: #fff; /* Text color */
+}
+
+.info-text {
+    font-size: 18px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: #292929; 
+    background-color: rgba(77, 255, 0, 0.454);
+}
+
+.splash-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: rgba(0,0,0,0.7); /* Hover color */
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.splash-button.show {
+    opacity: 1;
+}
+
+.splash-button:hover {
+    background-color: green;
+}
+</style>
+</head>
+<body>
+<div class="splash-container" id="splash">
+  <div class="splash-content">
+    <img id="loadingImage" src="loading_green.gif" alt="Loading" width="100" height="100"> <!-- Embedding the image -->
+    <div class="loading-text" id="loadingText">Loading...</div>
+    <div class="ready-text" id="readyText">Goal 15: Life on Land. </div>
+    <div class="info-text" id="infoText"> EARTH, a project by Fridali Gaias, Maryam Chaudhry, Vitoria Franca, and Danial Javed.   </div>
+
+    <button class="splash-button" id="enterButton" onclick="redirectToHome()"> Enter &#9660; </button>
+  </div>
+</div>
+
+<video id="video-background" autoplay loop muted>
+  <source src="nature_bg.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+<script>
+  // Redirect to home page after animation
+  function redirectToHome() {
+    document.body.style.transition = 'transform 0.5s ease'; // Add transition effect to body
+    document.body.style.transform = 'translateY(-100%)'; // Slide the body upwards
+    setTimeout(function() {
+      window.location.href = "https://w1916669.users.ecs.westminster.ac.uk/EARTH/home.html"; // Change this to your home page URL
+    }, 400); 
+  }
+
+  // Show enter button after loading animation 
+  setTimeout(function() {
+    document.getElementById('enterButton').classList.add('show');
+    document.getElementById('loadingText').style.display = 'none';
+    document.getElementById('readyText').style.opacity = '1';
+    document.getElementById('loadingImage').style.display = 'none';
+    document.getElementById('infoText').style.opacity = '1';
+  }, 4000);
+
+</script>
+</body>
+</html>
