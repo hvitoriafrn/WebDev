@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Adding the favicon  -->
+        <link rel="icon" type="image/png" href="clear01.png">
+        <link rel="stylesheet" href="style.css">
+        <title> Shop </title>
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            font-size: medium;
+        }
+        .myContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 20px;
+            font-size: medium;
+        }
+        /* Styles for product containers */
+        .product-container {
+            width: calc(25% - 15px); /* Four products per row with space between */
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 10px;
+            margin: 0 10px 20px 0; /* Adjust margins for spacing between products */
+            box-sizing: border-box; /* Include padding and border in the width calculation */
+        }
+        .myContainer::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .product-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .product-info {
+            margin-bottom: 10px;
+        }
+        .options select,
+        .options input {
+            margin-right: 10px;
+        }
+
+        /* Styles for checkout summary */
+        .checkout-summary {
+            width: 25%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 10px;
+            display: none;
+            position: fixed;
+            right: 10px;
+            top: 70px; /* Adjusted top position for space at the top */
+            background-color: #84a98c;
+            z-index: 999;
+            cursor: move; /* Add cursor style for dragging */
+        }
+
+        .checkout-summary.visible {
+            display: block;
+        }
+
+        .selected-products {
+            list-style-type: none; /* Remove bullet points */
+            padding: 0;
+        }
+
+        .selected-products li {
+            margin-bottom: 5px;
+        }
+
+        .checkout-feedback {
+            margin-top: 10px;
+        }
+
+
+        /* Styles for buttons */
+        button {
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .add-to-cart {
+            background-color: #4CAF50; /* Green background color */
+            color: white;
+        }
+
+        .checkout-btn {
+            background-color: #008CBA; /* Blue background color */
+            color: white;
+        }
+
+        /* Styles for the carousel within the product container */
+        .product-container {
+            position: relative;
+            overflow: hidden; /* Hide overflowing content */
+        }
+    
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Navigation buttons for the carousel */
+        .prev-btn,
+        .next-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            z-index: 1;
+        }
+
+        .prev-btn {
+            left: 5px; /* Adjust left position */
+        }
+
+        .next-btn {
+            right: 5px; /* Adjust right position */
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        /* Styling for the button */
+        .myFooter-button {
+            padding: 10px 20px;
+            background-color: #6600ff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .myFooter-button:hover {
+            background-color: #2b0466; /* Darker shade on hover */
+        }
+
+        /* Go to top button */
+    .go-top-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #6600ff;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      z-index: 1000; /* Ensure it's above other content */
+    }
+
+    .go-top-btn:hover {
+      background-color: #2b0466; /* Darker shade on hover */
+    }
+        </style>
+    </head>
+    <body>
+              <!-- header -->
+
+    <header class="header">
+
+        <a href="#" class="logo"><img src="clear01.png" alt="Earth Logo" style="width: 20px; height: 20px;"> Earth</a>
+  
+  
+        <nav class="navbar">
+            <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/home.html">home</a>
+            <div class="dropdown">
+                <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Team.html">about us</a>
+                <div class="dropdown-content">
+                    <a href="#content">content</a>
+                    <div class="sub-menu">
+                        <a href="#overview">overview</a>
+                        <a href="https://w1947710.users.ecs.westminster.ac.uk/EARTH/content_ST4.html "target="_blank">take action</a>
+                        <a href="#targets">targets</a>
+                        <a href="https://w1905050.users.ecs.westminster.ac.uk/EARTH/content_ST1.html">progress</a>
+                    </div>
+                </div>
+            </div>
+            <a href="https://w1947710.users.ecs.westminster.ac.uk/EARTH/gallery.html">gallery</a>
+            <a href="https://w1905050.users.ecs.westminster.ac.uk/EARTH/shop.html">shop</a>
+            <div class="dropdown">
+                <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Profile.html" target="_blank">user profile</a>
+                <div class="dropdown-content">
+                    <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/feedback.html"target="_blank">feedback form</a>
+                </div>
+            </div>
+            <a href="https://w1947710.users.ecs.westminster.ac.uk/EARTH/sitemap.html" target="_blank">sitemap</a>
+            <div class="dropdown">
+                <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Team.html"target="_blank">meet the team</a>
+                <div class="dropdown-content">
+                  <a href="https://sdgs.un.org/contact" target="_blank">Contact</a>
+                    <a href="#joinus">join us</a>
+                    <a href="FAQs.html"target="_blank">FAQs</a>
+                    <a href="terms&conditions.html"target="_blank">Terms & Conditions</a>
+                </div>
+            </div>
+        </nav>
+      
+  
+        <div class="icons">
+            <div id="menu-btn"></div>
+        </div>
+  
+        
+    </header>
+        
+        <h1 style="margin-top: 100px; margin-left: 50px;"> Shop</h1>
+        <h3 style="margin-top: 20px; margin-left: 50px;"> Keyrings and Plushies </h3>
+        
+        <!-- KEYRING PRODUCTS -->
+        <div class="myContainer">
+            <!-- Product 1 - PANDA KEYRING -->
+            <div class="product-container">
+                <div class="carousel">
+                    <div class="slide"><img src="product1_type1.jpg" alt="panda keyring Image 1"></div>
+                    <div class="slide"><img src="product1_type2.jpg" alt="panda keyring Image 2"></div>
+                    <div class="slide"><img src="product1_type3.jpg" alt="panda keyring Image 3"></div>
+                    <div class="slide"><img src="product1_type4.jpg" alt="panda keyring Image 3"></div>
+                </div>
+                <!-- Navigation buttons for the carousel -->
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
+                <div class="product-info">
+                    <h3>Panda keyring</h3>
+                    <p>£20.99</p>
+                </div>
+                <div class="options">
+                    <select>
+                        <option value="for me">for me</option>
+                        <option value="gift">gift</option>
+                    </select>
+                    <select>
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                    <input type="number" value="1" min="1">
+                </div>
+                <br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <!-- Product 2 - tiger keyring -->
+            <div class="product-container">
+                <div class="carousel">
+                    <div class="slide"><img src="product2_type1.jpg" alt="tiger keyring Image 1"></div>
+                    <div class="slide"><img src="product2_type2.jpg" alt="tiger keyring Image 2"></div>
+                    <div class="slide"><img src="product2_type3.jpg" alt="tiger keyring Image 3"></div>
+                    <div class="slide"><img src="product2_type4.jpg" alt="tiger keyring Image 3"></div>
+                </div>
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
+                <div class="product-info">
+                    <h3> Tiger Keyring</h3>
+                    <p>£20.99</p>
+                </div>
+                <div class="options">
+                    <select>
+                        <option value="for me">for me</option>
+                        <option value="gift">gift</option>
+                    </select>
+                    <select>
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                    <input type="number" value="1" min="1">
+                </div>
+                <br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 3 metal keyrings -->
+            <div class="product-container">
+                <div class="carousel">
+                    <div class="slide"><img src="product3_type1.jpg" alt="turtle keyring Image 1"></div>
+                    <div class="slide"><img src="product3_type2.jpg" alt="stingray  keyring Image 2"></div>
+                    <div class="slide"><img src="product3_type3.jpg" alt="penguin  keyring Image 3"></div>
+                    <div class="slide"><img src="product3_type4.jpg" alt="octopus Image 3"></div>
+                </div>
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
+                <div class="product-info">
+                    <h3>Metal Animal Keyrings</h3>
+                    <p>£35.99</p>
+                </div>
+                <div class="options">
+                    <select>
+                        <option value="for me">for me</option>
+                        <option value="gift">gift</option>
+                    </select>
+                    <select>
+                        <option value="turtle">Turtle</option>
+                        <option value="small_penguin"> Stingray</option>
+                        <option value="medium_penguin"> Penguin</option>
+                        <option value="octopus">Octopus</option>
+                    </select>
+                    <input type="number" value="1" min="1">
+                </div>
+                <br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 4 - bunny plushie -->
+            <div class="product-container">
+                <div class="carousel">
+                    <div class="slide"><img src="product4_type1.jpg" alt="bunny Image 1"></div>
+                    <div class="slide"><img src="product4_type2.jpg" alt="bunny Image 2"></div>
+                    <div class="slide"><img src="product4_type3.jpg" alt="bunny Image 3"></div>
+                    <div class="slide"><img src="product4_type4.jpg" alt="bunny Image 3"></div>
+                </div>
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
+                <div class="product-info">
+                    <h3>Bunny Plushie</h3>
+                    <p>£45.65</p>
+                </div>
+                <div class="options">
+                    <select>
+                        <option value="for me">for me</option>
+                        <option value="gift">gift</option>
+                    </select>
+                    <select>
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                    <input type="number" value="1" min="1">
+                </div>
+                <br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+        <h3 style="margin-top: 20px; margin-left: 50px;"> Bags and Pouches </h3>
+        <!-- PRODUCTS cont. -->
+        <div class="myContainer">
+            <!-- Product - tote version 1  -->
+            <div class="product-container">
+                <div class="carousel">
+                    <div class="slide"><img src="product5_type1.jpg" alt="tote tiger Image 1"></div>
+                    <div class="slide"><img src="product5_type2.jpg" alt="tote jaguar Image 2"></div>
+                    <div class="slide"><img src="product5_type3.jpg" alt="tote medium rodent Image 3"></div>
+                    <div class="slide"><img src="product5_type4.jpg" alt="tote zebra Image 3"></div>
+                </div>
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
+                <div class="product-info">
+                    <h3>Animal Photo Tote </h3>
+                    <p>£25.99</p>
+                </div>
+                <div class="options">
+                    <select>
+                        <option value="for me">for me</option>
+                        <option value="gift">gift</option>
+                    </select>
+                    <select>
+                        <option value="tiger">Tiger</option>
+                        <option value="Rodent small">Jaguar </option>
+                        <option value="Rodent regular">Rodent </option>
+                        <option value="Zebra regular">Zebra </option>
+                    </select>
+                    <input type="number" value="1" min="1">
+                </div>
+                <br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <!-- Product 2 - watercolour tote -->
+            <div class="product-container">
+                <div class="carousel">
+                    <div class="slide"><img src="product6_type1.jpg" alt="Product Image 1"></div>
+                    <div class="slide"><img src="product6_type2.jpg" alt="Product Image 2"></div>
+                    <div class="slide"><img src="product6_type3.jpg" alt="Product Image 3"></div>
+                    <div class="slide"><img src="product6_type4.jpg" alt="Product Image 3"></div>
+                </div>
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
+                <div class="product-info">
+                    <h3> Paint Animal Tote </h3>
+                    <p>£31.99</p>
+                </div>
+                <div class="options">
+                    <select>
+                        <option value="for me">for me</option>
+                        <option value="gift">gift</option>
+                    </select>
+                    <select>
+                        <option value="polar bear">Polar Bear</option>
+                        <option value="rhyno">Rhyno</option>
+                        <option value="rodent">Rodent</option>
+                        <option value="bunny">Bunny</option>
+                    </select>
+                    <input type="number" value="1" min="1">
+                </div>
+                <br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 3 - graphic tote -->
+            <div class="product-container">
+                <div class="carousel">
+                    <div class="slide"><img src="product7_type1.jpg" alt="panda tote v1 Image 1"></div>
+                    <div class="slide"><img src="product7_type2.jpg" alt="panda tote v2 Image 2"></div>
+                    <div class="slide"><img src="product7_type3.jpg" alt="lion tote v1 Image 3"></div>
+                    <div class="slide"><img src="product7_type4.jpg" alt="lion tote v2 Image 3"></div>
+                </div>
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
+                <div class="product-info">
+                    <h3> Graphic Animal Tote</h3>
+                    <p>£20.99</p>
+                </div>
+                <div class="options">
+                    <select>
+                        <option value="for me">for me</option>
+                        <option value="gift">gift</option>
+                    </select>
+                    <select>
+                        <option value="panda v1">Panda v1</option>
+                        <option value="panda v2">Panda v2</option>
+                        <option value="lion v1">Lion v1</option>
+                        <option value="lion v1">Lion v2</option>
+                    </select>
+                    <input type="number" value="1" min="1">
+                </div>
+                <br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-container">
+                <div class="carousel">
+                    <div class="slide"><img src="product8_type1.jpg" alt="pouch Image 1"></div>
+                    <div class="slide"><img src="product8_type2.jpg" alt="pouch Image 2"></div>
+                    <div class="slide"><img src="product8_type3.jpg" alt="pouch Image 3"></div>
+                    <div class="slide"><img src="product8_type4.jpg" alt="pouch Image 3"></div>
+                </div>
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
+                <div class="product-info">
+                    <h3>Bird Pouch</h3>
+                    <p>£32.99</p>
+                </div>
+                <div class="options">
+                    <select>
+                        <option value="for me">for me</option>
+                        <option value="gift">gift</option>
+                    </select>
+                    <select>
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </select>
+                    <input type="number" value="1" min="1">
+                </div>
+                <br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- PRODUCTS cont. -->
+        <h3 style="margin-top: 20px; margin-left: 50px;"> Clothing </h3>
+        <div class="myContainer">
+            <!-- Product 1 - graphic style tees -->
+            <div class="product-container">
+                <div class="carousel">
+                    <div class="slide"><img src="product9_type1.jpg" alt="lion tee Image 1"></div>
+                    <div class="slide"><img src="product9_type2.jpg" alt="bear tee Image 2"></div>
+                    <div class="slide"><img src="product9_type3.jpg" alt="tiger tee Image 3"></div>
+                    <div class="slide"><img src="product9_type4.jpg" alt="panda tee Image 3"></div>
+                </div>
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
+                <div class="product-info">
+                    <h3>Graphic Animal Tees</h3>
+                    <p>£20.99</p>
+                </div>
+                <div class="options">
+                    <select>
+                        <option value="for me">for me</option>
+                        <option value="gift">gift</option>
+                    </select>
+                    <select>
+                        <option value="small">Lion</option>
+                        <option value="medium">Bear</option>
+                        <option value="large">Tiger</option>
+                        <option value="large">Panda</option>
+                    </select>
+                    <input type="number" value="1" min="1">
+                </div>
+                <br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <!-- Product 2 - cotton tees -->
+            <div class="product-container">
+                <div class="carousel">
+                    <div class="slide"><img src="product10_type1.jpg" alt="panda Image 1"></div>
+                    <div class="slide"><img src="product10_type2.jpg" alt="jaguar Image 2"></div>
+                    <div class="slide"><img src="product10_type3.jpg" alt="zebra Image 3"></div>
+                    <div class="slide"><img src="product10_type4.jpg" alt="monkey Image 3"></div>
+                </div>
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
+                <div class="product-info">
+                    <h3>Cotton Animal Tees</h3>
+                    <p>£40.50</p>
+                </div>
+                <div class="options">
+                    <select>
+                        <option value="for me">for me</option>
+                        <option value="gift">gift</option>
+                    </select>
+                    <select>
+                        <option value="small">Panda</option>
+                        <option value="medium">Jaguar</option>
+                        <option value="large">Zebra</option>
+                        <option value="large">Monkey</option>
+                    </select>
+                    <input type="number" value="1" min="1">
+                </div>
+                <br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <!-- Product 3 - paint tees -->
+            <div class="product-container">
+                <div class="carousel">
+                    <div class="slide"><img src="product11_type1.jpg" alt="whale Image 1"></div>
+                    <div class="slide"><img src="product11_type2.jpg" alt="rhyno Image 2"></div>
+                    <div class="slide"><img src="product11_type3.jpg" alt="elephant Image 3"></div>
+                    <div class="slide"><img src="product11_type4.jpg" alt="tiger Image 3"></div>
+                </div>
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
+                <div class="product-info">
+                    <h3> Paint Animal Tees</h3>
+                    <p>£28.99</p>
+                </div>
+                <div class="options">
+                    <select>
+                        <option value="">for me</option>
+                        <option value="gift">gift</option>
+                    </select>
+                    <select>
+                        <option value="Whale">Whale</option>
+                        <option value="rhyno">Rhyno</option>
+                        <option value="elephant">Elephant</option>
+                        <option value="tiger">Tiger</option>
+                    </select>
+                    <input type="number" value="1" min="1">
+                </div>
+                <br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Product 4 - Fun animal tees -->
+            <div class="product-container">
+                <div class="carousel">
+                    <div class="slide"><img src="product12_type1.jpg" alt="seagull Image 1"></div>
+                    <div class="slide"><img src="product12_type2.jpg" alt="whales Image 2"></div>
+                    <div class="slide"><img src="product12_type3.jpg" alt="whales v2 Image 3"></div>
+                    <div class="slide"><img src="product12_type4.jpg" alt="whales v3 Image 3"></div>
+                </div>
+                <button class="prev-btn">&lt;</button>
+                <button class="next-btn">&gt;</button>
+                <div class="product-info">
+                    <h3> Fun Animal Tees</h3>
+                    <p>£15.90</p>
+                </div>
+                <div class="options">
+                    <select>
+                        <option value="for me">for me</option>
+                        <option value="gift">gift</option>
+                    </select>
+                    <select>
+                        <option value="seagull">Seagull</option>
+                        <option value="whales">Whales</option>
+                        <option value="whales v2">Whales v2</option>
+                        <option value="whales v3">Whales v3</option>
+                    </select>
+                    <input type="number" value="1" min="1">
+                </div>
+                <br>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- checkout summary-->
+        <div class="checkout-summary">
+            <h2>Checkout Summary</h2>
+            <br>
+            <ul class="selected-products"></ul>
+            <p>Total: <span class="totalPrice">0 </span></p>
+            <br>
+            <button class="checkout-btn">Proceed to Checkout</button>
+            <p class="checkout-feedback"></p>
+        </div>
+
+        <!-- Go to top button -->
+    <button class="go-top-btn" onclick="goToTop()"> ⇧ </button>
+        
+        <footer>
+            <button class="myFooter-button" onclick="redirectToPageEditor()">About this Page Editor.</button>
+        </footer>
+    
+    
+    <script>
+        document.querySelectorAll('.add-to-cart').forEach(function(button) {
+            button.addEventListener('click', function() {
+                const productContainer = this.closest('.product-container');
+                const productName = productContainer.querySelector('h3').textContent;
+                const productPrice = parseFloat(productContainer.querySelector('p').textContent.replace('£', ''));
+                const productOption1 = productContainer.querySelector('select:nth-of-type(1)').value;
+                const productOption2 = productContainer.querySelector('select:nth-of-type(2)').value;
+                const productQuantity = parseInt(productContainer.querySelector('input[type="number"]').value);
+
+                const selectedProduct = {
+                    name: productName,
+                    price: productPrice,
+                    option1: productOption1,
+                    option2: productOption2,
+                    quantity: productQuantity
+                };
+                addToCart(selectedProduct);
+            });
+        });
+        let productIdCounter = 1; //  a counter for unique product IDs
+        function addToCart(product) {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const uniqueId = `product_${productIdCounter++}`; //  a unique ID for the product
+            product.id = uniqueId; // giving the unique ID to the product object
+            cartItems.push(product);
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            updateCheckoutSummary();
+        }
+
+        function updateCheckoutSummary() {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            const checkoutSummary = document.querySelector('.checkout-summary');
+            const selectedProductsList = checkoutSummary.querySelector('.selected-products');
+            const totalPriceElement = checkoutSummary.querySelector('.totalPrice');
+
+            selectedProductsList.innerHTML = '';
+            let totalPrice = 0;
+
+            cartItems.forEach(function(item) {
+                const listItem = document.createElement('li');
+                listItem.textContent = `${item.quantity}x ${item.name} (${item.option1}, ${item.option2}) - £${(item.price * item.quantity).toFixed(2)}`;
+                const removeButton = document.createElement('button');
+                removeButton.textContent = ' x ';
+                removeButton.style.backgroundColor = 'transparent'; // Transparent background
+                removeButton.style.color = '#4a2020'; // Red color for 'x'
+                removeButton.style.border = '2px solid #4a2020'; // Red border
+                removeButton.style.borderRadius = '40%'; // Circular shape
+                removeButton.style.padding = '1px'; // Padding to adjust size
+                removeButton.style.marginLeft = '10px'; 
+                removeButton.addEventListener('click', function() {
+                    removeFromCart(item.id);
+                });
+                listItem.appendChild(removeButton);
+                selectedProductsList.appendChild(listItem);
+                totalPrice += item.price * item.quantity;
+            });
+
+            totalPriceElement.textContent = `£${totalPrice.toFixed(2)}`;
+            localStorage.setItem('totalPrice', totalPrice.toFixed(2)); // Store the total price in local storage
+            
+
+
+            if (cartItems.length > 0) {
+                checkoutSummary.classList.add('visible');
+            } else {
+                checkoutSummary.classList.remove('visible');
+            }
+        }
+        
+        function removeFromCart(productId) {
+            let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            cartItems = cartItems.filter(item => item.id !== productId); // Remove item based on unique ID
+            localStorage.setItem('cart', JSON.stringify(cartItems));
+            updateCheckoutSummary();
+        }
+
+        document.querySelector('.checkout-btn').addEventListener('click', function() {
+            const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+            if (cartItems.length === 0) {
+                document.querySelector('.checkout-feedback').textContent = 'Please add at least one product to proceed to checkout.';
+            } else {
+                // Redirect to checkout page with checkout summary
+                const checkoutSummary = document.querySelector('.checkout-summary').innerHTML;
+                localStorage.setItem('checkoutSummary', checkoutSummary);
+                localStorage.removeItem('cart');
+                window.location.href = 'checkout.html'; 
+            }
+        });
+        
+        // Initialize the checkout summary on page load
+        updateCheckoutSummary();
+        
+        // carousel
+        document.querySelectorAll('.product-container').forEach(function(container) {
+            const carousel = container.querySelector('.carousel');
+            const slides = container.querySelectorAll('.slide');
+            const prevBtn = container.querySelector('.prev-btn');
+            const nextBtn = container.querySelector('.next-btn');
+            let currentSlide = 0;
+            function showSlide(index) {
+                if (index < 0) {
+                    currentSlide = slides.length - 1;
+                } else if (index >= slides.length) {
+                    currentSlide = 0;
+                } else {
+                    currentSlide = index;
+                }
+                const offset = -currentSlide * 100;
+                carousel.style.transform = `translateX(${offset}%)`;
+            }
+            prevBtn.addEventListener('click', function() {
+                showSlide(currentSlide - 1);
+            });
+            nextBtn.addEventListener('click', function() {
+                showSlide(currentSlide + 1);
+            });
+        });
+
+
+        // making checkout summary draggable
+        const checkoutSummary = document.querySelector('.checkout-summary');
+        let isDragging = false;
+        let offsetX, offsetY;
+        checkoutSummary.addEventListener('mousedown', startDrag);
+        checkoutSummary.addEventListener('mouseup', endDrag);
+        document.addEventListener('mousemove', drag);
+        function startDrag(e) {
+            isDragging = true;
+            offsetX = e.clientX - checkoutSummary.getBoundingClientRect().left;
+            offsetY = e.clientY - checkoutSummary.getBoundingClientRect().top;
+        }
+        function endDrag() {
+            isDragging = false;
+        }
+        function drag(e) {
+            if (isDragging) {
+                const x = e.clientX - offsetX;
+                const y = e.clientY - offsetY;
+                checkoutSummary.style.left = `${x}px`;
+                checkoutSummary.style.top = `${y}px`;
+            }
+        }
+
+        function goToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+        //footer link
+        function redirectToPageEditor() {
+            window.location.href = "https://w1905050.users.ecs.westminster.ac.uk/EARTH/pageEditor_ST1.html";
+        }
+    </script>
+    </body>
+</html>
+
