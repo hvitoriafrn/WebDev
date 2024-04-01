@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Editor</title>
+  <!-- Adding the favicon  -->
+  <link rel="icon" type="image/png" href="clear01.png">
   <style>
     body {
       font-family: Courier New, monospace;
@@ -99,6 +101,25 @@
         color: #fff;
     }
 
+    /* Go to top button */
+    .go-top-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #6600ff;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      z-index: 1000; /* Ensure it's above other content */
+    }
+
+    .go-top-btn:hover {
+      background-color: #2b0466; /* Darker shade on hover */
+    }
+
 
   </style>
 </head>
@@ -110,6 +131,9 @@
       Your browser does not support the video tag.
     </video>
   </div>
+
+  <!-- Go to top button -->
+  <button class="go-top-btn" onclick="goToTop()"> ⇧ </button>
 
   <div class="container">
     <h1>Page Editor</h1>
@@ -151,5 +175,11 @@
     </footer>
   </div>
 </body>
+
+<script>
+  function goToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
 
 </html>
