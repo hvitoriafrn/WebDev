@@ -10,7 +10,7 @@
     <!-- swiper bundle -->
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
-    <link rel="stylesheet" href="earth_style.css">
+    <link rel="stylesheet" href="CSS/CSS Nav and footer.css">
 </head>
 <body>
     
@@ -18,17 +18,47 @@
 
     <header class="header">
 
-        <a href="#" class="logo"><img src="life.jpg" alt="Earth Logo" style="width: 20px; height: 20px;"> Earth</a>
+        <a href="#" class="logo"><img src="clear01.png" alt="Earth Logo" style="width: 20px; height: 20px;"> Earth</a>
 
 
         <nav class="navbar">
-            <a href="#home">home</a>
-            <a href="#aboutus">about us</a>
-            <a href="#gallery">gallery</a>
-            <a href="#shop">shop</a>
-            <a href="#contact">contact</a>
-            <a href="#joinus">join us</a>
-        </nav>
+          <a href="#home">home</a>
+          <div class="dropdown">
+              <a href="#aboutus">about us</a>
+              <div class="dropdown-content">
+                  <a href="#content">content</a>
+                  <div class="sub-menu">
+                      <a href="#overview">overview</a>
+                      <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/content_ST4.html "target="_blank">take action</a>
+                      <a href="#targets">targets</a>
+                      <a href="#progress">progress</a>
+                  </div>
+              </div>
+          </div>
+          <a href="#gallery">gallery</a>
+          <a href="#shop">shop</a>
+          <div class="dropdown">
+              <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Profile.html" target="_blank">user profile</a>
+              <div class="dropdown-content">
+                  <a href="Forms.html"target="_blank">feedback form</a>
+              </div>
+          </div>
+          <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/sitemap.html " target="_blank">sitemap</a>
+          <div class="dropdown">
+              <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Team.html"target="_blank">meet the team</a>
+              <div class="dropdown-content">
+                <a href="https://sdgs.un.org/contact" target="_blank">Contact</a>
+                  <a href="#joinus">join us</a>
+                  <a href="FAQs.html"target="_blank">FAQs</a>
+                  <a href="terms&conditions.html"target="_blank">Terms & Conditions</a>
+              </div>
+          </div>
+      </nav>
+      
+      
+      
+      
+      
 
         <div class="icons">
             <div id="menu-btn"></div>
@@ -38,229 +68,78 @@
     </header>
 
 
-<!-- section for home -->
-
-<section class="home" id="home"> 
-  <div class="home-container"> 
-    <div class="home-text"> 
-      <h3>Supporting Life <br> on Earth </h3> <a href="#" class="btn">Nature's Gateway</a> 
-    </div> 
-  </div> 
-  <div class="image-container"> <img src="life.jpg" alt="Life Image" class="home-image"> 
-  </div> 
-</section>
-
-  <!-- end -->
-
-    <!-- about -->
-
-    <section class="about" id="about">
-      <div class="split-container">
-          <div class="about-us">
-              <h2 class="deco-title">About us</h2>
-              <div class="image">
-                  <img src="images/about.png" alt="">
-              </div>
-              <div class="content">
-                  <div class="icons-container">
-                      <div class="icons">
-                          <h3>Welcome to our digital sanctuary, dedicated to the vibrant heartbeat of our planet's terrestrial life. Step into a world where every leaf, every creature, and every ecosystem matters.</h3>
-                      </div>
-                      
-                      <div class="icons">
-                          
-                          <h3>Our mission is clear: to champion SDG 15 - Life on Land - by showcasing the beauty, diversity, and importance of our terrestrial ecosystems. 
-                            <br><br>
-                            Through immersive galleries, thought-provoking content, and sustainable shopping experiences, we invite you to explore, learn, and take action for a greener, healthier world. 
-                            <br><br>
-                            Join us on this journey as we cultivate a deeper connection with nature and pave the way for a future where life on land thrives.</h3>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <div class="our-mission">
-              <h2 class="deco-title">Our Mission</h2>
-              <p></p>
-          </div>
-      </div>
-  </section>
-  
 
 
-  <!-- end -->
-
-  <!-- gallery -->
-
-  <section class="gallery" id="gallery">
-
-    <h2 class="heading">gallery</h2>
-
-    <div class="swiper gallery-slider">
-
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="" alt="">
-                </div>
-            </div>
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="" alt="">
-                </div>
-            </div>
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="" alt="">
-                </div>
-            </div>
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="" alt="">
-                </div>
-            </div>
-
-        </div>
-
-        <div class="swiper-button-next"></div> <!---- creates a button for navigating to the next slide in the gallery. This button is handled by the Swiper library. -->
-        <div class="swiper-button-prev"></div>
-
-    </div>
-
-</section>
-
-<!-- end -->
-
-<!-- Shop -->
-
-<section class="shop" id="shop">
-
-  <h2 class="heading">Shop</h2>
-
-  <div class="box-container">
-
-      <div class="box">
-          <img src="" alt="">
-          <div class="content">
-              <h3></h3>
-              <a href="#" class="btn">show more</a>
-          </div>
-      </div>
-
-      <div class="box">
-          <img src="" alt="">
-          <div class="content">
-              <h3></h3>
-              <a href="#" class="btn">show more</a>
-          </div>
-      </div>
-
-      <div class="box">
-          <img src="" alt="">
-          <div class="content">
-              <h3></h3>
-              <a href="#" class="btn">show more</a>
-          </div>
-      </div>
-
-      <div class="box">
-          <img src="" alt="">
-          <div class="content">
-              <h3></h3>
-              <a href="#" class="btn">show more</a>
-          </div>
-      </div>
-
-  </div>
-
-</section>
-
-<!-- end -->
-
-<!-- contact -->
-
-<section class="contact" id="contact">
-
-  <h2 class="heading">Contact</h2>
-
-  <form action="">
-
-      <div class="inputBox">
-          <input type="text" placeholder="name">
-          <input type="email" placeholder="email">
-      </div>
-
-      <div class="inputBox">
-          <input type="number" placeholder="number">
-          <input type="text" placeholder="subject">
-      </div>
-
-      <textarea name="" id="" cols="30" rows="10" placeholder="meassage"></textarea>
-
-      <a href="#" class="btn">send message</a>
-
-  </form>
-
-</section>
-
-<!-- end -->
 
 
-<!-- footer -->
+
+
+
+
+
+
+
+    <!-- footer -->
 
 <section class="footer lime-bg">
-  <div class="box-container">
-    <div class="box">
-      <h3>Earth</h3>
-      <p class="links"><i class="fas fa-clock"></i> Contact us from Monday - Friday</p>
-      <p class="days">7:00AM - 11:00PM</p>
-    </div>
-
-
-    <div class="box">
-      <h3>Contact Info</h3>
-      <a href="#" class="links"><i class="fas fa-phone"></i> 020 7429 5822</a>
-      <a href="#" class="links"><i class="fas fa-envelope"></i> info@earth.com</a>
-      <a href="#" class="links"><i class="fas fa-map-marker-alt"></i> London, United Kingdom</a>
-    </div>
-
-
-    <div class="box">
-      <h3>Quick Links</h3>
-      <a href="#" class="links"><i class="fas fa-arrow-right"></i> Home</a>
-      <a href="#" class="links"><i class="fas fa-arrow-right"></i> About Us</a>
-      <a href="#" class="links"><i class="fas fa-arrow-right"></i> Gallery</a>
-      <a href="#" class="links"><i class="fas fa-arrow-right"></i> Shop</a>
-      <a href="#" class="links"><i class="fas fa-arrow-right"></i> Contact</a>
-      <a href="#" class="links"><i class="fas fa-arrow-right"></i> Join Us</a>
-    </div>
-
-
-    <div class="box">
-      <h3>Newsletter</h3>
-      <p>Subscribe for latest updates</p>
-      <input type="email" placeholder="Your Email" class="email">
-      <a href="#" class="btn">Subscribe</a>
-      <div class="share">
-        <a href="#" class="fab fa-facebook-f"></a>
-        <a href="#" class="fab fa-twitter"></a>
-        <a href="#" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-linkedin"></a>
+    <div class="box-container">
+      <div class="box">
+        <h3>Earth</h3>
+        <p class="links"><i class="fas fa-user"></i> Student 1 - Frida</p>
+        <a href="#" class="links"><i class="fas fa-user"></i> Student 2 - Maryam</a>
+        <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/pageEditor_ST3.html" target="_blank" class="links"><i class="fas fa-user"></i> Student 3 - Victoria</a>
+        <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/pageditor_ST4.html " class="links"><i class="fas fa-user"></i> Student 4 - Daniel</a>
+      </div>
+  
+      <div class="box">
+        <h3>Contact Info</h3>
+        <p class="links"><i class="fas fa-clock"></i> Monday - Friday 7:00AM - 11:00PM</p>
+        <a href="#" class="links"><i class="fas fa-phone"></i> 020 7429 5822</a>
+        <a href="#" class="links"><i class="fas fa-envelope"></i> info@earth.com</a>
+        <a href="#" class="links"><i class="fas fa-map-marker-alt"></i> London, United Kingdom</a>
+      </div>
+  
+      <div class="box">
+        <h3>Quick Links</h3>
+        <a href="#" class="links"><i class="fas fa-arrow-right"></i> Home</a>
+        <a href="#" class="links"><i class="fas fa-arrow-right"></i> About Us</a>
+        <a href="#" class="links"><i class="fas fa-arrow-right"></i> Gallery</a>
+        <a href="#" class="links"><i class="fas fa-arrow-right"></i> Shop</a>
+        <a href="#" class="links"><i class="fas fa-arrow-right"></i> user profile</a>
+        <a href="#" class="links"><i class="fas fa-arrow-right"></i> Feedback Form</a>
+        <a href="#" class="links"><i class="fas fa-arrow-right"></i> Sitemap</a><a href="#" class="links"><i class="fas fa-arrow-right"></i> Meet the team</a>
+        <a href="#" class="links"><i class="fas fa-arrow-right"></i> Contact</a>
+        <a href="#" class="links"><i class="fas fa-arrow-right"></i> Join Us</a>
+      </div>
+  
+      <div class="box">
+        <h3>Forms</h3>
+        <a href="terms&conditions.html" class="links" target="_blank"><i class="fas fa-arrow-right"></i> Terms and Conditions</a>
+        <a href="https://www.un.org/en/about-us/privacy-notice" class="links" target="_blank"><i class="fas fa-arrow-right"></i> Privacy Policy</a>
+        <!-- Add more form links here -->
+      </div>
+  
+      <div class="box">
+        <h3>Newsletter</h3>
+        <p>Subscribe for latest updates</p>
+        <input type="email" placeholder="Your Email" class="email">
+        <a href="#" class="btn">Subscribe</a>
+        <div class="share">
+          <a href="https://www.facebook.com/SustDev" class="fab fa-facebook-f" target="_blank"></a>
+          <a href="https://twitter.com/SustDev" class="fab fa-twitter" target="_blank"></a>
+          <a href="https://www.youtube.com/user/uncsd2012/featured" class="fab fa-youtube" target="_blank"></a>
+          <a href="https://www.flickr.com/photos/sustdev" class="fab fa-flickr" target="_blank"></a>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="credit">&copy; Earth. All rights reserved by <a href="#" class="link">Earth</a></div>
-</section>
-
-
-<!-- end -->
-
-<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
-    <script src="zoojava.js"></script>
-
-</body>
-</html>
+    <div class="credit">&copy; Earth. All rights reserved by <a href="#" class="link">Earth</a></div>
+  </section>
+  
+  <!-- end -->
+  
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+  <script src="zoojava.js"></script>
+  
+  </body>
+  </html>
+  
