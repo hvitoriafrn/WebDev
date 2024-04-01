@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="Homepage.css">
+    <style>
+        
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+  }
+  body {
+    background-color: #84a98c;
+  }
+  /* Position the image container (needed to position the left and right arrows) */
+  .container {
+    margin-top: 80px;
+    position: relative;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: darkgreen;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: lightgreen;
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    background-color: green;
+    padding: 2px 16px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 20%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+  }
+
+  .slide-content {
+    display: flex;
+    align-items: center;
+  }
+  
+  .text-content {
+    text-align: center;
+    font-size: 18px;
+    margin-left: 20px; 
+    margin-bottom: 160px;
+    font-family: 'Poppins', sans-serif;
+  }
+  .text-content h1 {
+    margin-top: 0; /* Reset margin for the heading */
+  }
+  
+  .text-content p {
+    margin-bottom: 0; /* Reset margin for the paragraph */
+  }
+  .text-content .name {
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+  }
+  .text-content .text-description {
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+  }
+  .text-content button {
+    background-color: lightgreen;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      opacity: 0;
+      animation: animate 1s ease-in-out 0.9s 1 forwards;
+      margin-left: 10px;
+      margin-top: 20px;
+  }
+  
+
+  @keyframes animate {
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+    </style>
+</head>
+
+<body>
+
+  <header class="header">
+
+    <a href="#" class="logo"><img src="clear01.png" alt="Earth Logo" style="width: 20px; height: 20px;"> Earth</a>
+
+
+    <nav class="navbar">
+      <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/home.html" target=" _blank">home</a>
+      <div class="dropdown">
+          <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Team.html" target=" _blank">about us</a>
+          <div class="dropdown-content">
+              <a href="#content">content</a>
+              <div class="sub-menu">
+                  <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/Overview.html" target=" _blank">overview</a>
+                  <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/content_ST3.html" target=" _blank">take action</a>
+                  <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/content_ST4.html " target=" _blank">targets</a>
+                  <a href="#progress">progress</a>
+              </div>
+          </div>
+      </div>
+      <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/gallery.html" target=" _blank">gallery</a>
+      <a href="#shop">shop</a>
+      <div class="dropdown">
+          <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Profile.html" target=" _blank">user profile</a>
+          <div class="dropdown-content">
+              <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/Forms.html" target=" _blank">feedback form</a>
+          </div>
+      </div>
+      <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/sitemap.html " target=" _blank">sitemap</a>
+      <div class="dropdown">
+          <a href="#info">info</a>
+          <div class="dropdown-content">
+            <a href="https://sdgs.un.org/contact" target=" _blank">Contact</a>
+              <a href="#joinus">join us</a>
+              <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/FAQs.html" target="_blank">FAQs</a>
+              <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/terms&conditions.html" target=" _blank">Terms & Conditions</a>
+          </div>
+      </div>
+  </nav>
+  
+  
+  
+  
+  
+
+    <div class="icons">
+        <div id="menu-btn"></div>
+    </div>
+
+    
+</header>
+
+
+<div class="container">
+
+   
+    <div class="mySlides">
+      <div class="numbertext">1 / 5</div>
+      <div class="slide-content">
+        <img src="img/amur_leopard.jpg" alt="leopard" style="width:65%">
+        <div class="text-content">
+          <div class="name"><h1><u>Amur Leopard's</u></h1></div><br>
+          <div class="text-description"><p>Amur leopards live alone. Strong and with dexterous feet, it covers and moves incomplete kills to prevent other predators from stealing them.</p>
+            <p>Ecologically, commercially, and culturally, the Amur leopard is significant. Prey animals like deer and Amur tigers gain from the preservation of the habitat.</p>
+            <p>We can assure the region's long-term conservation by bringing them back with the appropriate conservation actions.</p>
+          </div>
+          <button>Donate</button>
+        </div> 
+      </div>
+    </div>
+  
+    <div class="mySlides">
+      <div class="numbertext">2 / 5</div>
+      <div class="slide-content">
+        <img src="img/Black_Rhino.jpg" alt="rhino" style="width:65%">
+        <div class="text-content">
+          <div class="name"><h1><u>Black Rhino's</u></h1></div><br>
+          <div class="text-description"><p>Lip shape is a distinguishing factor between black and white rhinos. White rhinos have square lips, but black rhinos have hooked upper lips.</p>
+            <p>In addition to having a significant impact on their ecosystems, rhinos are a major source of ecotourism revenue in several nations.</p>
+            <p>Elephants are among the many other species that benefit from black rhino conservation because these animals require vast lands to survive.</p>
+          </div>
+          <button>Donate</button>
+        </div> 
+      </div>
+    </div>
+  
+    <div class="mySlides">
+      <div class="numbertext">3 / 5</div>
+      <div class="slide-content">
+        <img src="img/sumatran_orangutan.jpg" alt="orangutan" style="width:65%">
+        <div class="text-content">
+          <div class="name"><h1><u>Sumatran Orangutan</u></h1></div><br>
+          <div class="text-description"><p>The Sumatran orangutan inhabits tropical rainforests, where it lives surrounded by trees, almost exclusively. </p>
+            <p>Of the nine Sumatran orangutan populations that exist, only seven—each with an estimated 250 or more individuals—have any chance of surviving.</p>
+            <p>If orangutans were to disappear, so would several tree species, especially those with larger seeds.</p>
+          </div>
+          <button>Donate</button>
+        </div> 
+      </div>
+    </div>
+  
+    <div class="mySlides">
+      <div class="numbertext">4 / 5</div>
+      <div class="slide-content">
+        <img src="img/Sumatran_Tiger_Hero.jpg" alt="Tiger" style="width:65%">
+        <div class="text-content">
+          <div class="name"><h1><u>Sumatran Tiger</u></h1></div><br>
+          <div class="text-description"><p>The black stripes on their orange coats are what set Sunda tigers apart. On the island of Sumatra, the last of the Sunda island tigers fight to survive.</p>
+            <p>Increased deforestation and widespread poaching could lead to the extinction of this noble animal.</p>
+            <p>An essential sign of a forest's biodiversity and health is the existence of Sunda tigers.</p>
+          </div>
+          <button>Donate</button>
+        </div> 
+      </div>
+    </div>
+  
+    <div class="mySlides">
+      <div class="numbertext">5 / 5</div>
+      <div class="slide-content">
+        <img src="img/seaturtlehawksbill.jpg" alt="Hawksbill" style="width:65%">
+        <div class="text-content">
+          <div class="name"><h1><u>Hawksbill</u></h1></div><br>
+          <div class="text-description"><p>Hawksbills get their name from its small, sharp beak. They have a pattern of overlapping scales on their shells, giving the edges a serrated appearance.</p>
+            <p>Hawksbills are mostly found in coral reefs in the tropical waters of the planet.</p>
+            <p>They are a vital part of marine ecosystems, as Hawksbills contribute to coral reef health maintenance. They improve reef fish's access to food by clearing sponges and other prey from the reef's surface.</p>
+          </div>
+          <button>Donate</button>
+        </div> 
+      </div>
+    </div>
+  
+  
+    
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  
+    
+    <div class="caption-container">
+      <p id="caption"></p>
+    </div>
+  
+    
+    <div class="row">
+      <div class="column">
+        <img class="demo cursor" src="img/amur_leopard.jpg" style="width:100%" onclick="currentSlide(1)" alt="Amur Leopard">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="img/Black_Rhino.jpg" style="width:100%" onclick="currentSlide(2)" alt="Black Rhino">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="img/sumatran_orangutan.jpg" style="width:100%" onclick="currentSlide(3)" alt="Sumatran Orangtun">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="img/Sumatran_Tiger_Hero.jpg" style="width:100%" onclick="currentSlide(4)" alt="Sumatran Tiger Hero">
+      </div>
+      <div class="column">
+        <img class="demo cursor" src="img/seaturtlehawksbill.jpg" style="width:100%" onclick="currentSlide(5)" alt="Sea Turtle Hawksbill">
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    let slideIndex = 1; //variable is equal to a value of 1
+    showSlides(slideIndex); //showslides function used with slideindex
+    
+    function plusSlides(n) { //plusSlides function defined with n
+      showSlides(slideIndex += n); //showSlides and slideIndex increment by n
+    }
+    
+    function currentSlide(n) { //currentSlide function also defined with n
+      showSlides(slideIndex = n); //slideIndex adn showSlides set to n
+    }
+    
+    function showSlides(n) {
+      let i; //decalres all the local vaariables
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("demo");
+      let captionText = document.getElementById("caption");
+      if (n > slides.length) {slideIndex = 1} //if n is greater than no. of slides then set slideIndex to 1
+      if (n < 1) {slideIndex = slides.length} //if n is less than 1 then set slideIndex to max no. of slides 6
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none"; //all slides hidden by setting display to none
+      }
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block"; //display the slide corresponding to the current slideIndex
+      dots[slideIndex-1].className += " active";  //current slideIndex is adds the dot to the active class
+      captionText.innerHTML = dots[slideIndex-1].alt; //updates the captionText with alt text of the current slide
+    }
+    </script>
+
+<section class="footer lime-bg">
+  <div class="box-container">
+    <div class="box">
+      <h3>Earth</h3>
+      <p class="links"><i class="fas fa-user"></i> Student 1 - Frida</p>
+      <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/pageEditor_ST2.html" class="links" target="_blank"><i class="fas fa-user"></i> Student 2 - Maryam</a>
+      <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/pageEditor_ST3.html" target="_blank" class="links"><i class="fas fa-user"></i> Student 3 - Victoria</a>
+      <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/pageditor_ST4.html " class="links" target="_blank"><i class="fas fa-user"></i> Student 4 - Daniel</a>
+    </div>
+
+    <div class="box">
+      <h3>Contact Info</h3>
+      <p class="links"><i class="fas fa-clock"></i> Monday - Friday 7:00AM - 11:00PM</p>
+      <a href="#" class="links"><i class="fas fa-phone"></i> 020 7429 5822</a>
+      <a href="#" class="links"><i class="fas fa-envelope"></i> info@earth.com</a>
+      <a href="#" class="links"><i class="fas fa-map-marker-alt"></i> London, United Kingdom</a>
+    </div>
+
+    <div class="box">
+      <h3>Quick Links</h3>
+      <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/home.html" target="_blank" class="links"><i class="fas fa-arrow-right"></i> Home</a>
+      <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Team.html" target="_blank" class="links"><i class="fas fa-arrow-right"></i> About Us</a>
+      <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/gallery.html" target="_blank" class="links"><i class="fas fa-arrow-right"></i> Gallery</a>
+      <a href="#" class="links"><i class="fas fa-arrow-right"></i> Shop</a>
+      <a href="https://w1938811.users.ecs.westminster.ac.uk/EARTH/Profile.html" target="_blank" class="links"><i class="fas fa-arrow-right"></i> user profile</a>
+      <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/Forms.html" target="_blank" class="links"><i class="fas fa-arrow-right"></i> Feedback Form</a>
+      <a href="https://w1947710.users.ecs.westminster.ac.uk/Earth/sitemap.html" target="_blank" class="links"><i class="fas fa-arrow-right"></i> Sitemap</a>
+     
+      <a href="https://sdgs.un.org/contact" target="_blank" class="links"><i class="fas fa-arrow-right"></i> Contact</a>
+      <a href="#" class="links"><i class="fas fa-arrow-right"></i> Join Us</a>
+    </div>
+
+    <div class="box">
+      <h3>Forms</h3>
+      <a href="https://w1916669.users.ecs.westminster.ac.uk/EARTH/terms&conditions.html" class="links" target="_blank"><i class="fas fa-arrow-right"></i> Terms and Conditions</a>
+<a href="https://www.un.org/en/about-us/privacy-notice" class="links" target="_blank"><i class="fas fa-arrow-right"></i> Privacy Policy</a>
+
+      <!-- Add more form links here -->
+    </div>
+
+    <div class="box">
+      <h3>Newsletter</h3>
+      <p>Subscribe for latest updates</p>
+      <input type="email" placeholder="Your Email" class="email">
+      <a href="#" class="btn">Subscribe</a>
+      <div class="share">
+        <a href="https://www.facebook.com/SustDev" class="fab fa-facebook-f" target="_blank"></a>
+        <a href="https://twitter.com/SustDev" class="fab fa-twitter" target="_blank"></a>
+        <a href="https://www.youtube.com/user/uncsd2012/featured" class="fab fa-youtube" target="_blank"></a>
+        <a href="https://www.flickr.com/photos/sustdev" class="fab fa-flickr" target="_blank"></a>
+        
+
+      </div>
+    </div>
+  </div>
+  <div class="credit">&copy; Earth. All rights reserved by <a href="#" class="link">Earth</a></div>
+</section>
+        
+</body>
+</html>
